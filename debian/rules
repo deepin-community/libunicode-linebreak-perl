@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+override_dh_clean:
+	rm -f Makefile
+	rm -f test-data/LineBreakTest.txt test-data/GraphemeBreakTest.txt
+	dh_clean
+
+%:
+	dh $@
